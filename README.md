@@ -1,17 +1,19 @@
 # Thinkpad-X201-Hackintosh-Catalina
 
+![Thinkpad X201 i7 Catalina OS hackintosh](/Thinkpad X201 i7 Catalina OS hackintosh.JPG)
+
 I have successfully installed Catalina on my ThinkPad X201. Previously I was running High Sierra, Catalina was around the same amount of work to get running, but the Graphics are much better even without metal support. For High Sierra, I had to inject drivers for the graphics card to get things to render, but there would still be artifacting and glitches. Catalina graphics runs perfect on the X201 without any additional drivers.
 
 I have my machine set to dual boot with Windows 7 on a partitioned SSD. The X201 does not have UEFI support, so the SMB partitions are all handled by clover installed to the main drive.
 
 ## Spec ##
 
-Intel® Core™ I7 processor I7-640LM (2.13 GHz) with dual-core
-High Definition (HD) Audio
-Conexant 20585 codec
-Volume up, down, and mute buttons
-Microphone input jack
-Headphone jack
+- Intel® Core™ I7 processor I7-640LM (2.13 GHz) with dual-core
+- High Definition (HD) Audio
+- Conexant 20585 codec
+- Volume up, down, and mute buttons
+- Microphone input jack
+- Headphone jack
 
 ## Wifi ##
 
@@ -19,11 +21,11 @@ The OEM wifi card will not work in Windows 7. I first upgraded to an Atheros AR9
 
 ## Working ##
 
-Volume control buttons
-Built in Bluetooth
-Brightness controls & all keyboard shortcuts
-Sound & Mic
-Webcam
+- Volume control buttons
+- Built in Bluetooth
+- Brightness controls & all keyboard shortcuts
+- Sound & Mic
+- Webcam
 
 ## Not yet working: ##
 
@@ -38,7 +40,6 @@ There are a couple of different screen resolutions for the thinkpads, mine is se
 1) Download the repo
 2) Open config.plist in Clover Configurator. 
 3) Set your SMBIOS to MacbookPro 9,2 and generate new UUID/Motherboard ID/System ID/Serials etc.
-
 
 I will add more instructions to this repo if anyone finds this useful? Does anyone need dual boot instructions for Catalina and Windows 7 - that was quite tricky to get working!
 
