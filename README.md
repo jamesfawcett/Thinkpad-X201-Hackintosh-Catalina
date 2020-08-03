@@ -1,6 +1,6 @@
 # Thinkpad-X201-Hackintosh-Catalina
 
-![Thinkpad X201 i7 Catalina OS hackintosh](/Thinkpad X201 i7 Catalina OS hackintosh.JPG)
+![Thinkpad X201 i7 Catalina OS hackintosh](/Thinkpad-X201-i7-Catalina-OS-hackintosh.JPG)
 
 I have successfully installed Catalina on my ThinkPad X201. Previously I was running High Sierra, Catalina was around the same amount of work to get running, but the Graphics are much better even without metal support. For High Sierra, I had to inject drivers for the graphics card to get things to render, but there would still be artifacting and glitches. Catalina graphics runs perfect on the X201 without any additional drivers.
 
