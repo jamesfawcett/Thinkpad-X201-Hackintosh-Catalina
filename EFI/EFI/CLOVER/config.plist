@@ -6,9 +6,7 @@
 	<dict>
 		<key>SSDT</key>
 		<dict>
-			<key>EnableC6</key>
-			<true/>
-			<key>EnableC2</key>
+			<key>DropOem</key>
 			<true/>
 			<key>Generate</key>
 			<dict>
@@ -17,12 +15,8 @@
 				<key>PStates</key>
 				<true/>
 			</dict>
-			<key>DropOem</key>
-			<false/>
-			<key>EnableC4</key>
-			<true/>
 		</dict>
-		<key>HaltEnabler</key>
+		<key>FixMCFG</key>
 		<true/>
 		<key>DSDT</key>
 		<dict>
@@ -34,13 +28,19 @@
 					<key>Replace</key>
 					<data>SUdQVQ==</data>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Comment</key>
 					<string>Rename GFX0 to IGPU</string>
 				</dict>
 			</array>
 			<key>Fixes</key>
 			<dict>
+				<key>FixLAN</key>
+				<true/>
+				<key>FixSBUS</key>
+				<true/>
+				<key>FixDisplay</key>
+				<true/>
 				<key>FixAirport</key>
 				<true/>
 				<key>FixShutdown</key>
@@ -55,6 +55,33 @@
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
+		<key>HaltEnabler</key>
+		<true/>
+		<key>DropTables</key>
+		<array>
+			<dict>
+				<key>TableId</key>
+				<string>CpuPm</string>
+				<key>Signature</key>
+				<string>SSDT</string>
+			</dict>
+			<dict>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+				<key>Signature</key>
+				<string>SSDT</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MATS</string>
+			</dict>
+		</array>
+		<key>FixHeaders</key>
+		<true/>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -67,11 +94,11 @@
 		<key>Debug</key>
 		<false/>
 		<key>Arguments</key>
-		<string>darkwake=8 UseKernelCache=No -v</string>
+		<string>darkwake=no UseKernelCache=No -v</string>
 		<key>XMPDetection</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>1</integer>
+		<integer>5</integer>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 	</dict>
@@ -117,20 +144,22 @@
 		<key>UseARTFrequency</key>
 		<false/>
 		<key>C4</key>
-		<true/>
+		<false/>
 		<key>C6</key>
-		<true/>
+		<false/>
 		<key>C2</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
 		<key>USB</key>
 		<dict>
+			<key>HighCurrent</key>
+			<true/>
 			<key>FixOwnership</key>
-			<false/>
-			<key>Inject</key>
-			<false/>
+			<true/>
+			<key>AddClockID</key>
+			<true/>
 		</dict>
 		<key>Audio</key>
 		<dict>
@@ -181,8 +210,6 @@
 	<dict>
 		<key>AppleRTC</key>
 		<true/>
-		<key>AsusAICPUPM</key>
-		<true/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelLapic</key>
@@ -190,18 +217,18 @@
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
-				<key>Comment</key>
-				<string>Trim SSD</string>
 				<key>Find</key>
-				<data>
-				QVBQTEUgU1NEAA==
-				</data>
+				<data>QVBQTEUgU1NEAA==</data>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAAAA==
-				</data>
+				<data>AAAAAAAAAAAAAA==</data>
+				<key>Disabled</key>
+				<false/>
+				<key>Comment</key>
+				<string>Trim SSD</string>
+				<key>InfoPlistPatch</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Find</key>
@@ -428,20 +455,20 @@
 	<key>RtVariables</key>
 	<dict>
 		<key>CsrActiveConfig</key>
-		<string>0x0</string>
+		<string>0x3E7</string>
 		<key>MLB</key>
-		<string></string>
+		<string>***PUTYOURSHERE***</string>
 		<key>ROM</key>
-		<string>UseMacAddr0</string>
+		<data>gFLsLvsk</data>
 		<key>BooterConfig</key>
 		<string>0x28</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>FirmwareFeatures</key>
-		<string>0xE80FE137</string>
+		<string>0xC00DE137</string>
 		<key>Board-ID</key>
-		<string>***</string>
+		<string>Mac-***PUTYOURSHERE***</string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>BoardVersion</key>
@@ -451,33 +478,33 @@
 		<key>ChassisType</key>
 		<string>0x0A</string>
 		<key>BiosVersion</key>
-		<string>MBP112.88Z.F000.B00.2004121759</string>
+		<string>MBP91.88Z.F000.B00.2004121621</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisAssetTag</key>
 		<string>MacBook-Aluminum</string>
 		<key>PlatformFeature</key>
-		<string>0x02</string>
+		<string>0xFFFF</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>***</string>
+		<string>***PUTYOURSHERE***</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>ProductName</key>
-		<string>MacBookPro11,3</string>
+		<string>MacBookPro9,2</string>
 		<key>SmUUID</key>
-		<string>***</string>
+		<string>***PUTYOURSHERE***</string>
 		<key>Mobile</key>
 		<true/>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>EfiVersion</key>
-		<string>160.0.0.0.0</string>
+		<string>232.0.0.0.0</string>
 		<key>SerialNumber</key>
-		<string>***</string>
+		<string>*** PUT YOURS HERE ***</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>BiosReleaseDate</key>
@@ -487,10 +514,12 @@
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
-		<key>InjectKexts</key>
-		<string>Yes</string>
 		<key>InjectSystemID</key>
 		<true/>
+		<key>CustomUUID</key>
+		<string>*** PUT YOURS HERE ***</string>
+		<key>InjectKexts</key>
+		<string>Yes</string>
 	</dict>
 	<key>ConfigName</key>
 	<string>Install</string>
