@@ -33,7 +33,7 @@ Sleep - working on this! It's very fast to just shut down and boot back up again
 
 ## Screen resolution ##
 
-There are a couple of different screen resolutions for the thinkpads, mine is set to 1440x900, this is set in the config.plist (or edit with Clover Configurator).
+There are a couple of different screen resolutions for the thinkpads, mine is set to ~1440x900~ - update, I now have the 1280x800 resolution this is set in the config.plist (or edit with Clover Configurator).
 
 ## Instructions ##
 
@@ -43,3 +43,6 @@ There are a couple of different screen resolutions for the thinkpads, mine is se
 
 I will add more instructions to this repo if anyone finds this useful? Does anyone need dual boot instructions for Catalina and Windows 7 - that was quite tricky to get working!
 
+## Important ##
+
+Kexts can be updated, but don't update VooDooPS2Controller. If you update this, the central red ThinkPad mouse button is no longer supported.
