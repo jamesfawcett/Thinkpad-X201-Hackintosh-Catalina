@@ -499,7 +499,7 @@
 		<key>CsrActiveConfig</key>
 		<string>0x3E7</string>
 		<key>MLB</key>
-		<string>C02307102QXF1YJUE</string>
+		<string>***PUTYOURSHERE***</string>
 		<key>ROM</key>
 		<data>gFLsLvsk</data>
 		<key>BooterConfig</key>
@@ -510,7 +510,7 @@
 		<key>FirmwareFeatures</key>
 		<string>0xC00DE137</string>
 		<key>Board-ID</key>
-		<string>Mac-***</string>
+		<string>Mac-***PUTYOURSHERE***</string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>BoardVersion</key>
@@ -532,13 +532,13 @@
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>***</string>
+		<string>***PUTYOURSHERE***</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>ProductName</key>
 		<string>MacBookPro9,2</string>
 		<key>SmUUID</key>
-		<string>***</string>
+		<string>***PUTYOURSHERE***</string>
 		<key>Mobile</key>
 		<true/>
 		<key>BoardType</key>
@@ -546,7 +546,7 @@
 		<key>EfiVersion</key>
 		<string>232.0.0.0.0</string>
 		<key>SerialNumber</key>
-		<string>***</string>
+		<string>*** PUT YOURS HERE ***</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>BiosReleaseDate</key>
@@ -558,6 +558,8 @@
 	<dict>
 		<key>InjectSystemID</key>
 		<true/>
+		<key>CustomUUID</key>
+		<string>*** PUT YOURS HERE ***</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 	</dict>
