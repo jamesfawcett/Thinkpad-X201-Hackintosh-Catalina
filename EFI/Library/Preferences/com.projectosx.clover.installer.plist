@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CloverRevision</key>
+	<integer>5121</integer>
+	<key>InstalledThemes</key>
+	<array>
+		<string>Lenovo</string>
+		<string>Thinkpad</string>
+		<string>random</string>
+		<string>Dell-RedPoint</string>
+		<string>embedded</string>
+	</array>
+	<key>org.clover.bootloader.bootno</key>
+	<true/>
+	<key>org.clover.cloverefi.64.sata</key>
+	<true/>
+	<key>org.clover.drivers64.apfsdriverloader</key>
+	<true/>
+	<key>org.clover.drivers64.mandatory.audiodxe</key>
+	<true/>
+	<key>org.clover.drivers64.mandatory.fsinject</key>
+	<true/>
+	<key>org.clover.drivers64.mandatory.smchelper</key>
+	<true/>
+	<key>org.clover.drivers64.mandatory.xhcidxe</key>
+	<true/>
+	<key>org.clover.drivers64uefi.apfsdriverloader.uefi</key>
+	<true/>
+	<key>org.clover.drivers64uefi.mandatory.audiodxe.uefi</key>
+	<true/>
+	<key>org.clover.drivers64uefi.mandatory.datahubdxe.uefi</key>
+	<true/>
+	<key>org.clover.drivers64uefi.mandatory.fsinject.uefi</key>
+	<true/>
+	<key>org.clover.drivers64uefi.mandatory.smchelper.uefi</key>
+	<true/>
+</dict>
+</plist>

@@ -21,6 +21,7 @@ The OEM wifi card will not work in Windows 7. I first upgraded to an Atheros AR9
 
 ## Working ##
 
+- Upgrades successfully to Catalina 10.15.7
 - Volume control buttons
 - Built in Bluetooth
 - Brightness controls & all keyboard shortcuts
@@ -45,4 +46,4 @@ I will add more instructions to this repo if anyone finds this useful? Does anyo
 
 ## Important ##
 
-Kexts can be updated, but don't update VooDooPS2Controller. If you update this, the central red ThinkPad mouse button is no longer supported.
+Kexts can be updated, but don't update VooDooPS2Controller. If you update this, the central red ThinkPad mouse button is no longer supported. Touch features all work, two finger scrolling etc.
