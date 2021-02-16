@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CloverRevision</key>
-	<integer>5121</integer>
+	<integer>5122</integer>
 	<key>InstalledThemes</key>
 	<array>
 		<string>Lenovo</string>
@@ -12,7 +12,7 @@
 		<string>Dell-RedPoint</string>
 		<string>embedded</string>
 	</array>
-	<key>org.clover.bootloader.bootno</key>
+	<key>org.clover.bootloader.boot0af</key>
 	<true/>
 	<key>org.clover.cloverefi.64.sata</key>
 	<true/>
