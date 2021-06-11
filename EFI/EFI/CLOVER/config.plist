@@ -6,7 +6,7 @@
 	<dict>
 		<key>SSDT</key>
 		<dict>
-			<key>DropOem</key>
+			<key>EnableC6</key>
 			<true/>
 			<key>Generate</key>
 			<dict>
@@ -15,48 +15,11 @@
 				<key>PStates</key>
 				<true/>
 			</dict>
+			<key>DropOem</key>
+			<true/>
+			<key>EnableC7</key>
+			<true/>
 		</dict>
-		<key>FixMCFG</key>
-		<true/>
-		<key>DSDT</key>
-		<dict>
-			<key>Patches</key>
-			<array>
-				<dict>
-					<key>Find</key>
-					<data>R0ZYMA==</data>
-					<key>Replace</key>
-					<data>SUdQVQ==</data>
-					<key>Disabled</key>
-					<true/>
-					<key>Comment</key>
-					<string>Rename GFX0 to IGPU</string>
-				</dict>
-			</array>
-			<key>Fixes</key>
-			<dict>
-				<key>FixLAN</key>
-				<true/>
-				<key>FixSBUS</key>
-				<true/>
-				<key>FixDisplay</key>
-				<false/>
-				<key>FixAirport</key>
-				<true/>
-				<key>FixShutdown</key>
-				<true/>
-			</dict>
-			<key>Name</key>
-			<string>DSDT.aml</string>
-			<key>DropOEM_DSM</key>
-			<false/>
-			<key>Debug</key>
-			<false/>
-			<key>ReuseFFFF</key>
-			<false/>
-		</dict>
-		<key>HaltEnabler</key>
-		<true/>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -80,7 +43,50 @@
 				<string>MATS</string>
 			</dict>
 		</array>
+		<key>PatchAPIC</key>
+		<true/>
 		<key>FixHeaders</key>
+		<true/>
+		<key>FixMCFG</key>
+		<true/>
+		<key>DSDT</key>
+		<dict>
+			<key>Patches</key>
+			<array>
+				<dict>
+					<key>Find</key>
+					<data>R0ZYMA==</data>
+					<key>Replace</key>
+					<data>SUdQVQ==</data>
+					<key>Disabled</key>
+					<false/>
+					<key>Comment</key>
+					<string>Rename GFX0 to IGPU</string>
+				</dict>
+			</array>
+			<key>Fixes</key>
+			<dict>
+				<key>FixLAN</key>
+				<true/>
+				<key>FixSBUS</key>
+				<true/>
+				<key>FixDisplay</key>
+				<true/>
+				<key>FixAirport</key>
+				<true/>
+				<key>FixShutdown</key>
+				<true/>
+			</dict>
+			<key>Name</key>
+			<string>DSDT.aml</string>
+			<key>DropOEM_DSM</key>
+			<false/>
+			<key>Debug</key>
+			<false/>
+			<key>ReuseFFFF</key>
+			<false/>
+		</dict>
+		<key>HaltEnabler</key>
 		<true/>
 	</dict>
 	<key>Boot</key>
@@ -94,7 +100,7 @@
 		<key>Debug</key>
 		<false/>
 		<key>Arguments</key>
-		<string>darkwake=no UseKernelCache=No -v</string>
+		<string>darkwake=no UseKernelCache=No</string>
 		<key>XMPDetection</key>
 		<false/>
 		<key>Timeout</key>
@@ -104,8 +110,78 @@
 	</dict>
 	<key>GUI</key>
 	<dict>
-		<key>Theme</key>
-		<string>Thinkpad</string>
+		<key>Hide</key>
+		<array>
+			<string>\EFI\BOOT\BOOTX64.EFI</string>
+			<string>Preboot</string>
+			<string>Recovery</string>
+			<string>MAC OS - Data</string>
+		</array>
+		<key>Custom</key>
+		<dict>
+			<key>Legacy</key>
+			<array>
+				<dict>
+					<key>Ignore</key>
+					<false/>
+					<key>Hotkey</key>
+					<string>L</string>
+					<key>Hidden</key>
+					<true/>
+					<key>Volume</key>
+					<string>Legacy HD3</string>
+					<key>FullTitle</key>
+					<string>Boot&lt;Windows&gt;from&lt;Legacy&gt;</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Type</key>
+					<string>Windows</string>
+				</dict>
+				<dict>
+					<key>FullTitle</key>
+					<string>Boot&lt;Windows&gt;from&lt;EFI&gt;</string>
+					<key>Ignore</key>
+					<false/>
+					<key>Type</key>
+					<string>Windows</string>
+					<key>Hidden</key>
+					<true/>
+					<key>Disabled</key>
+					<false/>
+					<key>Volume</key>
+					<string>Legacy HD1</string>
+				</dict>
+				<dict>
+					<key>FullTitle</key>
+					<string>Boot&lt;Ubuntu&gt;from&lt;Legacy&gt;</string>
+					<key>Ignore</key>
+					<false/>
+					<key>Type</key>
+					<string>Linux</string>
+					<key>Hidden</key>
+					<false/>
+					<key>Disabled</key>
+					<false/>
+					<key>Volume</key>
+					<string>Legacy HD4</string>
+				</dict>
+			</array>
+		</dict>
+		<key>Language</key>
+		<string>en:0</string>
+		<key>ScreenResolution</key>
+		<string>1440x900</string>
+		<key>Scan</key>
+		<dict>
+			<key>Tool</key>
+			<true/>
+			<key>Entries</key>
+			<true/>
+			<key>Legacy</key>
+			<true/>
+			<key>Linux</key>
+			<true/>
+		</dict>
 		<key>Mouse</key>
 		<dict>
 			<key>Mirror</key>
@@ -117,27 +193,8 @@
 			<key>Enabled</key>
 			<true/>
 		</dict>
-		<key>Hide</key>
-		<array>
-			<string>\EFI\BOOT\BOOTX64.EFI</string>
-			<string>Preboot</string>
-			<string>Recovery</string>
-		</array>
-		<key>Language</key>
-		<string>en:0</string>
-		<key>Scan</key>
-		<dict>
-			<key>Tool</key>
-			<true/>
-			<key>Entries</key>
-			<true/>
-			<key>Legacy</key>
-			<false/>
-			<key>Linux</key>
-			<false/>
-		</dict>
-		<key>ScreenResolution</key>
-		<string>1280x800</string>
+		<key>Theme</key>
+		<string>Thinkpad</string>
 	</dict>
 	<key>CPU</key>
 	<dict>
@@ -152,6 +209,30 @@
 	</dict>
 	<key>Devices</key>
 	<dict>
+		<key>FakeID</key>
+		<dict>
+			<key>WIFI</key>
+			<string>0x43a014E4</string>
+		</dict>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x1B,0x0)</key>
+			<dict>
+				<key>layout-id</key>
+				<data>DQAAAA==</data>
+				<key>model</key>
+				<string>5 Series/3400 Series Chipset High Definition Audio</string>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,27,0</string>
+				<key>device_type</key>
+				<string>Audio device</string>
+			</dict>
+		</dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<string>No</string>
+		</dict>
 		<key>USB</key>
 		<dict>
 			<key>HighCurrent</key>
@@ -161,34 +242,6 @@
 			<key>AddClockID</key>
 			<true/>
 		</dict>
-		<key>Audio</key>
-		<dict>
-			<key>Inject</key>
-			<integer>3</integer>
-		</dict>
-		<key>FakeID</key>
-		<dict>
-			<key>WIFI</key>
-			<string>0x43a014E4</string>
-			<key>IntelGfx</key>
-			<string>0x12345678</string>
-		</dict>
-		<key>Properties</key>
-		<dict>
-			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
-			<dict>
-				<key>framebuffer-fbccontrol-allzero</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-featurecontrol-allzero</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-linkwidth</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-singlelink</key>
-				<data>AQAAAA==</data>
-			</dict>
-		</dict>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -196,6 +249,8 @@
 	</array>
 	<key>Graphics</key>
 	<dict>
+		<key>NvidiaSingle</key>
+		<false/>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
@@ -205,8 +260,12 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
-		<key>NvidiaSingle</key>
+		<key>PatchVBios</key>
+		<true/>
+		<key>LoadVBios</key>
 		<false/>
+		<key>ig-platform-id</key>
+		<string>0x01660003</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -459,7 +518,7 @@
 		<key>CsrActiveConfig</key>
 		<string>0x3E7</string>
 		<key>MLB</key>
-		<string>***PUTYOURSHERE***</string>
+		<string>C02307102QXF1YJUE</string>
 		<key>ROM</key>
 		<data>gFLsLvsk</data>
 		<key>BooterConfig</key>
@@ -468,9 +527,9 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>FirmwareFeatures</key>
-		<string>0xC00DE137</string>
+		<string>0xE80FE137</string>
 		<key>Board-ID</key>
-		<string>Mac-***PUTYOURSHERE***</string>
+		<string></string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>BoardVersion</key>
@@ -480,48 +539,46 @@
 		<key>ChassisType</key>
 		<string>0x0A</string>
 		<key>BiosVersion</key>
-		<string>MBP91.88Z.F000.B00.2004121621</string>
+		<string>MBP114.88Z.F000.B00.2004161536</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisAssetTag</key>
 		<string>MacBook-Aluminum</string>
 		<key>PlatformFeature</key>
-		<string>0xFFFF</string>
+		<string>0x02</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>***PUTYOURSHERE***</string>
+		<string></string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>ProductName</key>
-		<string>MacBookPro9,2</string>
+		<string>MacBookPro11,5</string>
 		<key>SmUUID</key>
-		<string>***PUTYOURSHERE***</string>
+		<string></string>
 		<key>Mobile</key>
 		<true/>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>EfiVersion</key>
-		<string>232.0.0.0.0</string>
+		<string>198.0.0.0.0</string>
 		<key>SerialNumber</key>
-		<string>*** PUT YOURS HERE ***</string>
+		<string>C02SD068G85Y</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>BiosReleaseDate</key>
-		<string>04/12/2020</string>
+		<string>04/16/2020</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
-		<key>InjectSystemID</key>
-		<true/>
-		<key>CustomUUID</key>
-		<string>*** PUT YOURS HERE ***</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
+		<key>InjectSystemID</key>
+		<true/>
 	</dict>
 	<key>ConfigName</key>
 	<string>Install</string>

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CloverRevision</key>
-	<integer>5122</integer>
+	<integer>5133</integer>
 	<key>InstalledThemes</key>
 	<array>
 		<string>Lenovo</string>
@@ -12,7 +12,7 @@
 		<string>Dell-RedPoint</string>
 		<string>embedded</string>
 	</array>
-	<key>org.clover.bootloader.boot0af</key>
+	<key>org.clover.bootloader.bootno</key>
 	<true/>
 	<key>org.clover.cloverefi.64.sata</key>
 	<true/>
@@ -30,11 +30,13 @@
 	<true/>
 	<key>org.clover.drivers64uefi.mandatory.audiodxe.uefi</key>
 	<true/>
-	<key>org.clover.drivers64uefi.mandatory.datahubdxe.uefi</key>
-	<true/>
 	<key>org.clover.drivers64uefi.mandatory.fsinject.uefi</key>
 	<true/>
 	<key>org.clover.drivers64uefi.mandatory.smchelper.uefi</key>
+	<true/>
+	<key>org.clover.drivers64uefi.openruntime.uefi</key>
+	<true/>
+	<key>org.clover.target.esp</key>
 	<true/>
 </dict>
 </plist>
