@@ -59,7 +59,7 @@
 					<key>Replace</key>
 					<data>SUdQVQ==</data>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Comment</key>
 					<string>Rename GFX0 to IGPU</string>
 				</dict>
@@ -71,7 +71,7 @@
 				<key>FixSBUS</key>
 				<true/>
 				<key>FixDisplay</key>
-				<true/>
+				<false/>
 				<key>FixAirport</key>
 				<true/>
 				<key>FixShutdown</key>
@@ -211,6 +211,8 @@
 	<dict>
 		<key>FakeID</key>
 		<dict>
+			<key>IntelGfx</key>
+			<string>0x12345678</string>
 			<key>WIFI</key>
 			<string>0x43a014E4</string>
 		</dict>
@@ -226,6 +228,19 @@
 				<string>Internal@0,27,0</string>
 				<key>device_type</key>
 				<string>Audio device</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>framebuffer-featurecontrol-allzero</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-singlelink</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-linkwidth</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-fbccontrol-allzero</key>
+				<data>AQAAAA==</data>
 			</dict>
 		</dict>
 		<key>Audio</key>
@@ -264,8 +279,6 @@
 		<true/>
 		<key>LoadVBios</key>
 		<false/>
-		<key>ig-platform-id</key>
-		<string>0x01660003</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
