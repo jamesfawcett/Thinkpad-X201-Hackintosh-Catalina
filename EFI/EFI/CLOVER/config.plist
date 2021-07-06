@@ -28,7 +28,7 @@
 					<key>Replace</key>
 					<data>SUdQVQ==</data>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Comment</key>
 					<string>Rename GFX0 to IGPU</string>
 				</dict>
@@ -40,7 +40,7 @@
 				<key>FixSBUS</key>
 				<true/>
 				<key>FixDisplay</key>
-				<true/>
+				<false/>
 				<key>FixAirport</key>
 				<true/>
 				<key>FixShutdown</key>
@@ -170,6 +170,24 @@
 		<dict>
 			<key>WIFI</key>
 			<string>0x43a014E4</string>
+			<key>IntelGfx</key>
+			<string>0x12345678</string>
+		</dict>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>framebuffer-fbccontrol-allzero</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-featurecontrol-allzero</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-linkwidth</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-patch-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-singlelink</key>
+				<data>AQAAAA==</data>
+			</dict>
 		</dict>
 	</dict>
 	<key>DisableDrivers</key>
@@ -183,14 +201,12 @@
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<true/>
+			<false/>
 			<key>NVidia</key>
 			<false/>
 		</dict>
 		<key>NvidiaSingle</key>
 		<false/>
-		<key>ig-platform-id</key>
-		<string>0x01660003</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
