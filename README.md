@@ -2,6 +2,8 @@
 
 ![Thinkpad X201 i7 Catalina OS hackintosh](/Thinkpad-X201-i7-Catalina-OS-hackintosh.JPG)
 
+** Please note ** - This repo uses Clover and is for Catalina. I strongly suggest taking a look at [jtaczanowski](https://github.com/jtaczanowski)'s OpenCore EFI for the X201, capable of running Big Sur! [See the project here](https://github.com/jtaczanowski/ThinkPad-X201-Arrandale-macOS-OpenCore)
+
 I have successfully installed Catalina on my ThinkPad X201. Previously I was running High Sierra, Catalina was around the same amount of work to get running, but the Graphics are much better even without metal support. For High Sierra, I had to inject drivers for the graphics card to get things to render, but there would still be artifacting and glitches. Catalina graphics runs perfect on the X201 without any additional drivers.
 
 I have my machine set to dual boot with Windows 7 on a partitioned SSD. The X201 does not have UEFI support, so the SMB partitions are all handled by clover installed to the main drive.
@@ -47,3 +49,7 @@ I will add more instructions to this repo if anyone finds this useful? Does anyo
 ## Important ##
 
 Kexts can be updated, but don't update VooDooPS2Controller. If you update this, the central red ThinkPad mouse button is no longer supported. Touch features all work, two finger scrolling etc.
+
+## Thanks ##
+
+Big thanks to [jtaczanowski](https://github.com/jtaczanowski) for his graphic acceleration contributions!
