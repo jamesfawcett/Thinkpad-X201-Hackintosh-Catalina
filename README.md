@@ -25,7 +25,7 @@ You can use built in Intel Wifi card with AirportItlwm.kext (included)
 
 The OEM wifi card will not work in Windows 7. I first upgraded to an Atheros AR9285 which worked natively in both Windows and OS, but it was noticably slower and lack of 5ghz support. I then upgraded to a BroadCom BCM94360HMB which is lighting fast! For Windows, you need to install the Asus AW-CMB160H drivers for it to work, it is not plug and play in Windows. For the antenna connectors, this card uses the new IPEX 4 smaller connectors. If you want to use the built in Thinkpad X201 antennas, you can fit IPEX-4 Female to IPEX-1 adaptors. There's a third antenna too which I fitted a simple IPEX 4 aerial although this is not necessary. I highly recommend the BroadCom AW-CB160 BCM94360HMB it's a very impressive wifi card, and with the SSD installed it's now a very quick machine. 
 
-To install this wireless card, we need to inject a new BIOS into  X201. It's very easy! Please refer to the following blog:
+To install this wireless card, we need to inject a new BIOS into  X201. It's very easy!  Please refer to the following blog:
 
 > https://li-aaron.github.io/2020/02/thinkpadx201i-refresh-2/
 
