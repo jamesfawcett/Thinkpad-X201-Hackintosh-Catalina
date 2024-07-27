@@ -23,7 +23,11 @@ I have my machine set to dual boot with Windows 7 on a partitioned SSD. The X201
 
 You can use built in Intel Wifi card with AirportItlwm.kext (included)
 
-The OEM wifi card will not work in Windows 7. I first upgraded to an Atheros AR9285 which worked natively in both Windows and OS, but it was noticably slower and lack of 5ghz support. I then upgraded to a BroadCom BCM94360HMB which is lighting fast! For Windows, you need to install the Asus AW-CMB160H drivers for it to work, it is not plug and play in Windows. For the antenna connectors, this card uses the new IPEX 4 smaller connectors. If you want to use the built in Thinkpad X201 antennas, you can fit IPEX-4 Female to IPEX-1 adaptors. There's a third antenna too which I fitted a simple IPEX 4 aerial although this is not necessary. I highly recommend the BroadCom AW-CB160 BCM94360HMB it's a very impressive wifi card, and with the SSD installed it's now a very quick machine.
+The OEM wifi card will not work in Windows 7. I first upgraded to an Atheros AR9285 which worked natively in both Windows and OS, but it was noticably slower and lack of 5ghz support. I then upgraded to a BroadCom BCM94360HMB which is lighting fast! For Windows, you need to install the Asus AW-CMB160H drivers for it to work, it is not plug and play in Windows. For the antenna connectors, this card uses the new IPEX 4 smaller connectors. If you want to use the built in Thinkpad X201 antennas, you can fit IPEX-4 Female to IPEX-1 adaptors. There's a third antenna too which I fitted a simple IPEX 4 aerial although this is not necessary. I highly recommend the BroadCom AW-CB160 BCM94360HMB it's a very impressive wifi card, and with the SSD installed it's now a very quick machine. 
+
+To install this wireless card, we need to inject a new BIOS into  X201. It's very easy! Please refer to the following blog:
+
+> https://li-aaron.github.io/2020/02/thinkpadx201i-refresh-2/
 
 ## Working ##
 
@@ -51,17 +55,34 @@ There are a couple of different screen resolutions for the thinkpads, mine is se
 
 I will add more instructions to this repo if anyone finds this useful? Does anyone need dual boot instructions for Catalina and Windows 7 - that was quite tricky to get working!
 
-## Installation and enabling QE/CI graphics acceleration ##
+## Installation  ##
 
 1) Use dosdude's Catalina Patcher app for creating bootable usb installer with post install patches (rolling back deprecated graphics kexts, OpenGL frameworks, platform patch, etc)
+    1) After the installation media is created, install clover (v5107 is recommended) into the installation media. Check the following in the installer:
+        1) `clover EFI 64-bits SATA`
+        2) `Boot Sectors -> Install boot0af in MBR`
+    2) After the installation is complete, add the kexts in  `./EFI/CLOVER/kexts/Other` to the same path in installation media and replace  `config.plist`  by the file with same name  in this repo, or you can simply replace the entire `EFI` folder with a folder of the same name in this repo.
+    3) (optional, but recommended) Use clover configurator to generate new SMBIOS content, such as serial number
+    4) Use a tool like clover configurator to check the `EFI` volume in installation media. It should be empty, we just need to confirm its existence, no need to do anything.
 2) Install OS
-3) After OS is installed, run usb installer to apply post install patches (kext, frameworks).
+    1) It is normal for the words "Installation failed" to appear after the progress bar is completed. Please continue the installation according to the normal process.
+
+
+
+
+After the steps above, although there are still problems, we already have an x201 with macOS10.15 installed. After testing, these steps are also effective for 10.14.
+
+## Enabling QE/CI graphics acceleration
+
+The following content is mainly used to solve the graphics driver problem. 
+
+1) After OS is installed, run usb installer to apply post install patches (kext, frameworks).
     * Select custom patches selection - for MacBookPro6,1 (which similar to x201 has arrandale CPU/GPU)
     * Select only "Legacy Video Card Patch" and "SIP Disabler Patch"
-4) After patches installation (but before reboot), select "Force Cache Rebuild".
+2) After patches installation (but before reboot), select "Force Cache Rebuild".
     * Important note: If you don't select "Force Cache Rebuild", system will reboot automatically after 10s.
-5) Remove entry Devices->FakeID->IntelGfx 0x12345678
-6) Boot MacOS, full QE/CI acceleration should working.
+3) Remove entry Devices->FakeID->IntelGfx 0x12345678
+4) Boot MacOS, full QE/CI acceleration should working.
 
 Inspired by Badruzeus post on [insanelymac](https://www.insanelymac.com/forum/topic/286092-guide-1st-generation-intel-hd-graphics-qeci/?do=findComment&comment=2732732)
 
