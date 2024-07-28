@@ -57,15 +57,21 @@ I will add more instructions to this repo if anyone finds this useful? Does anyo
 
 ## Installation  ##
 
-1) Use dosdude's Catalina Patcher app for creating bootable usb installer with post install patches (rolling back deprecated graphics kexts, OpenGL frameworks, platform patch, etc)
+1) Use a tool like DiskGenius to delete all partitions in the device to be used as the installation media, and then format it into a macOS extend (journalized), GUID partition map.
+2) Use dosdude's Catalina Patcher app for creating bootable usb installer with post install patches (rolling back deprecated graphics kexts, OpenGL frameworks, platform patch, etc)
     1) After the installation media is created, install clover (v5107 is recommended) into the installation media. Check the following in the installer:
         1) `clover EFI 64-bits SATA`
         2) `Boot Sectors -> Install boot0af in MBR`
     2) After the installation is complete, add the kexts in  `./EFI/CLOVER/kexts/Other` to the same path in installation media and replace  `config.plist`  by the file with same name  in this repo, or you can simply replace the entire `EFI` folder with a folder of the same name in this repo.
     3) (optional, but recommended) Use clover configurator to generate new SMBIOS content, such as serial number
     4) Use a tool like clover configurator to check the `EFI` volume in installation media. It should be empty, we just need to confirm its existence, no need to do anything.
-2) Install OS
+3) Install OS
     1) It is normal for the words "Installation failed" to appear after the progress bar is completed. Please continue the installation according to the normal process.
+4) Move `EFI` folder to your hard drive
+    1) Run clover installer v5107 on your X201
+    2) Do  the same thing in step (2.1)  for your hard drive
+    3) move your kexts and `config.plist` to the same position in your hard drive
+
 
 
 
